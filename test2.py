@@ -41,10 +41,8 @@ Here is some guidance about the structure and template of some social media plat
 -Suggest an appropriate image or GIF for the first tweet (if applicable)
 -No more 400 words in the post
 
-You must notice that the total number of words I require in the post must be approximate {number_words}. 
-If this number of words is higher than the maximum words whose chosen media platform allow. Try to summarize the most important parts.
+You must notice that the total number of words I require in the post must be approximate {number_words}. But if this number of words is higher than the maximum words whose chosen media platform allow, try to shorten them so as not to exceed the platform's word limit. Try to summarize the most important parts. The platform's word limit priority is higher and mandatory
 It is not always necessary to form complete sentences, it just needs to be understood by the reader.
-Example pieces include: 'This Facebook post captures the essence of the original content while adopting the engaging and slightly informal tone of the sample content. It keeps the post concise and within Facebook’s best practices for engagement.' absolutely not generated for me.
 '''
 
 openai_api_key = st.sidebar.text_input("OpenAI API Key", type="password")
