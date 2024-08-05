@@ -44,6 +44,7 @@ Here is some guidance about the structure and template of some social media plat
 You must notice that the total number of words I require in the post must be approximate {number_words}. 
 If this number of words is higher than the maximum words whose chosen media platform allow. Try to summarize the most important parts.
 It is not always necessary to form complete sentences, it just needs to be understood by the reader.
+Remember to create a complete post, just copy it. Unrelated things cannot be generated.
 '''
 
 openai_api_key = st.sidebar.text_input("OpenAI API Key", type="password")
