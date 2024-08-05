@@ -78,7 +78,7 @@ with st.form("my_form"):
         messages=[
             {
                 "role": "user",
-                "content": template,
+                "content": prompt,
             }
         ],
         model="gpt-4o",
