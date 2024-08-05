@@ -47,45 +47,52 @@ It is not always necessary to form complete sentences, it just needs to be under
 '''
 
 openai_api_key = st.sidebar.text_input("OpenAI API Key", type="password")
-temperature = st.text_input("",
+
+
+with st.form("my_form"):
+    temperature = st.text_input("",
     placeholder="Temperature"
-)
-print(type(temperature))
-media_type = st.text_input("",
-    placeholder="Enter a social media type",
-)
-number_words = st.text_input("",
-    placeholder="Enter number of words you want to generate",
-)
-input_content = st.text_input("",
-    placeholder="Enter your input content",
-)
-style_content = st.text_input("",
-    placeholder="Enter your style content",
-)
+    )
+    print(type(temperature))
+    media_type = st.text_input("",
+        placeholder="Enter a social media type",
+    )
+    number_words = st.text_input("",
+        placeholder="Enter number of words you want to generate",
+    )
+    input_content = st.text_input("",
+        placeholder="Enter your input content",
+    )
+    style_content = st.text_input("",
+        placeholder="Enter your style content",
+    )
 
-prompt = template.format(input_content=input_content,style_content=style_content,number_words=number_words,social_media_type=media_type)
+    prompt = template.format(input_content=input_content,style_content=style_content,number_words=number_words,social_media_type=media_type)
 
-client = OpenAI(
-    # This is the default and can be omitted
-    api_key=openai_api_key,
-)
+    client = OpenAI(
+        # This is the default and can be omitted
+        api_key=openai_api_key,
+    )
 
-chat_completion = client.chat.completions.create(
-    messages=[
-        {
-            "role": "user",
-            "content": template,
-        }
-    ],
-    model="gpt-4o",
-    temperature=0.5
-)
+    chat_completion = client.chat.completions.create(
+        messages=[
+            {
+                "role": "user",
+                "content": template,
+            }
+        ],
+        model="gpt-4o",
+        temperature=0.5
+    )
+    
 
-st.write("### Answer")
-output = chat_completion.choices[0].message.content
-st.write(output)
 
-st.write("### Number words")
-num_words_output = len(output.split())
-st.write(num_words_output)
+
+    submitted = st.form_submit_button("Submit")
+    st.write("### Answer")
+    output = chat_completion.choices[0].message.content
+    st.info(output)
+
+    st.write("### Number words")
+    num_words_output = len(output.split())
+    st.info(num_words_output)
